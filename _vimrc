@@ -1,4 +1,6 @@
 source $VIMRUNTIME/vimrc_example.vim
+" font 
+let mapleader = ","
 
 au GUIEnter * simalt ~x
 set hls
@@ -9,7 +11,7 @@ set ts=4
 set sw=4
 set si
 cd C:\Users\Arpon\OneDrive\Documents\Vim_c++\nvim
-colorscheme torte
+
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
@@ -60,3 +62,18 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
+
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+"NerdTree
+Plug 'scrooloose/nerdtree'
+"nouvum Colorscheme
+Plug 'dylnmc/novum.vim'
+
+call plug#end()
+
+"colorscheme call
+colorscheme novum
