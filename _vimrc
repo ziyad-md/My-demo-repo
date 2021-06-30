@@ -11,6 +11,18 @@ set ts=4
 set sw=4
 set si
 cd C:\Users\Arpon\OneDrive\Documents\Vim_c++\nvim
+    	
+"autocomplete
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
+
+inoremap	<expr> <Down> pumvisible() ? "<C-n>" : <Right>"
+inoremap	<expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+inoremap	<expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
+inoremap	<expr> <CR> pumvisible() ? "<C-y>" : "<CR>"
+inoremap	<expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
+"END
 
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
@@ -71,9 +83,31 @@ call plug#begin('~/.vim/plugged')
 "NerdTree
 Plug 'scrooloose/nerdtree'
 "nouvum Colorscheme
-Plug 'dylnmc/novum.vim'
+Plug 'bluz71/vim-nightfly-guicolors'
+
+"complete
+Plug 'vim-scripts/AutoComplPop'
 
 call plug#end()
 
-"colorscheme call
-colorscheme novum
+set encoding=utf-8
+colorscheme nightfly
+
+set pythonhome=C:\Python39
+set pythondll=C:\randomplace\python\python39.dll
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set encoding=utf-8
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+
+call vundle#end()            " required
+filetype plugin indent on
